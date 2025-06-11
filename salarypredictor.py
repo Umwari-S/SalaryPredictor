@@ -2,7 +2,8 @@ import pickle
 import numpy as np
 import streamlit as st
 
-model = pickle.load(open('model.pkl', 'rb'))
+with open('model.pkl', 'rb') as f:
+    model = pickle.load(f)
 
 st.markdown("<h1 style='text-align: center; font-size: 48px; font-weight: bold;'>Salary Predictor</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center; color: gray;'>A simple web app to predict annual salary</h3>", unsafe_allow_html=True)
