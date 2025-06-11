@@ -1,6 +1,8 @@
 import pickle
 import numpy as np
 import streamlit as st
+import datetime
+
 with open('model.pkl', 'rb') as f:
     model = pickle.load(f)
 
@@ -11,7 +13,10 @@ st.markdown("<h3 style='text-align: center; color: gray;'>A simple web app to pr
 first_name = st.text_input("First Name")
 last_name = st.text_input("Last Name")
 age = st.number_input("Your Age", 0, 100, 25, 1)
-dob = st.date_input("Your Birthday")
+dob = st.date_input(
+    "Your Birthday",
+    min_value=datetime.date(1950, 1, 1),
+    max_value=datetime.date.today())
 marital_status = st.radio("Marital Status", ["Single", "Married"])
 
 
